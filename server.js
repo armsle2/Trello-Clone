@@ -11,12 +11,13 @@ let PORT = process.env.PORT||3000;
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.text());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json({type: "application/vnd.api+json"}));
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
-app.set('view engine', 'handlebars')
-// require('./routes/api-routes.js')(app);
+app.set('view engine', 'handlebars');
+require('./routes/board-api-routes.js')(app);
+require('./routes/list-api-routes.js')(app);
 require('./routes/html-routes.js')(app);
 
 db.sequelize.sync().then(function() {

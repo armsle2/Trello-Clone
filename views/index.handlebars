@@ -1,1 +1,38 @@
-<h1>Trello Clone</h1>
+
+<div class="jumbotron">
+	<div id="page-header">
+		<h1>Trello Clone</h1>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class='col-md-6'>
+			<form>
+				<label>
+					<h2>Create A Board</h2>
+				</label>
+				<input type="input" id="board-name">
+				<label>
+					<h2>Name Your List</h2>
+				</label>
+				<input type="input" id="list-name">
+				<label>
+					<h3>Type In Your Task</h3>
+				</label>
+				<input type="input" id="task">
+				<br>
+				<br>
+				<button type="submit" id="submit">Submit</button>
+			</form>
+		</div>
+		<div class="col-md-6">
+			<h1>{{name}}</h1>
+			<h2>{{list}}</h2>
+			<ul>
+				{{#each task}}
+				<li>{{this.task}}</li>
+				{{/each}}
+			</ul>
+		</div>
+	</div>
+</div>
