@@ -1,5 +1,14 @@
 $(document).ready(() => {
 
+	$('#submit-board').on('click', (event)=>{
+		// event.preventDefault();
+		let board = {
+			name: $('#board-name').val()
+		};
+		$.post('/api/boards', board).then(data=>{
+		});
+	});
+
 	$('#submit').on('click', (event) => {
 		event.preventDefault();
 		console.log('ready');
@@ -12,14 +21,10 @@ $(document).ready(() => {
 			task: $('#task').val(),
 		};
 		// console.log(board);
-		$.post('/api/boards', board).then(data=>{
-				console.log(data.id);
-				list.BoardId = data.id
-
-			$.post('/api/lists', list).then(data=>{
+		$.post('/api/lists', list).then(data=>{
 				console.log(data);
-			})
-		})
+			
+		});
 	})
 
 });

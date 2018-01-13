@@ -12,6 +12,7 @@
 					<h2>Create A Board</h2>
 				</label>
 				<input type="input" id="board-name">
+				<button type="submit" id="submit-board">Submit</button>
 				<label>
 					<h2>Name Your List</h2>
 				</label>
@@ -25,14 +26,11 @@
 				<button type="submit" id="submit">Submit</button>
 			</form>
 		</div>
-		<div class="col-md-6">
-			<h1>{{name}}</h1>
-			<h2>{{list}}</h2>
-			<ul>
-				{{#each task}}
-				<li>{{this.task}}</li>
+		<div class="col-md-6 text-center">
+			<h1>BOARDS</h1>
+				{{#each boards}}
+					<a href="/lists"><h2>{{this.name}}</h2></a>
 				{{/each}}
-			</ul>
 		</div>
 	</div>
 </div>
