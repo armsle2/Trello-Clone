@@ -20,16 +20,20 @@
 			{{#each list}}
 		<div class="col-md-2 text-center">
 			<h1>{{this.title}}</h1>
-			<label>
-				<p>Add A Task</p>
-			</label>
-			<input type="input" id="task">
-			<br>
-			<br>
-			<button type="submit" id="submit-task">Submit</button>
-			{{!-- <ul>
-				<li>{{this.task}}</li>
-			</ul> --}}
+			<form  class="submit-task" data-id="{{this.id}}">
+				<label>
+					<p>Add A Task</p>
+				</label>
+				<input type="input" id="task">
+				<br>
+				<br>
+				<button type="submit">Submit</button>
+			</form>
+				{{#each this.Tasks}}
+			<ul>
+				<li>{{this.body}}</li>
+			</ul>
+				{{/each}}
 		</div>
 			{{/each}}
 	</div>

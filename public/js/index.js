@@ -1,4 +1,4 @@
-$(document).ready(() => {
+$(() => {
 
 	$('#submit-board').on('click', (event)=>{
 		// event.preventDefault();
@@ -16,7 +16,7 @@ $(document).ready(() => {
 	});
 
 	$('.submit-list').on('submit', (event) => {
-		event.preventDefault();
+		// event.preventDefault();
 		console.log('ready');
 		let list = {
 			title: $('#list-name').val(),
@@ -29,16 +29,18 @@ $(document).ready(() => {
 		});
 	});
 
-	$('#submit').on('click', (event) => {
-		event.preventDefault();
-		console.log('ready');
+	$('.submit-task').on('submit', function(event){
+		// event.preventDefault();
+		console.log('task submitted');
+		let id = $(this).find('input').val();
 
-		let list = {
-			title: $('#list-name').val(),
-			task: $('#task').val()
+		let task = {
+			body: $(this).find('input').val(),
+			ListId: $(this).data('id')
 		};
-		// console.log(board);
-		$.post('/api/lists', list).then(data=>{
+		// console.log(task);
+		// console.log(id);
+		$.post('/api/tasks', task).then(data=>{
 				console.log(data);
 			
 		});

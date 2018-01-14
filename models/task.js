@@ -1,9 +1,11 @@
 module.exports = (sequelize, DataTypes)=>{
 	let Task = sequelize.define('Task', {
 		body: {
-			type: DataTypes.TEXT,
-			allowNull: false,
-			len: [1]
+			type: DataTypes.STRING,
+		    allowNull: false,
+		    validate: {
+		    	len: [1]
+		      }
 		}
 	});
 

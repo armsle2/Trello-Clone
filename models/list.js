@@ -16,5 +16,11 @@ module.exports = (sequelize, DataTypes)=>{
 			}
 		});
 	};
+
+	List.associate = models=>{
+		List.hasMany(models.Task, {
+			onDelete: 'cascade'
+		});
+	};
 	return List;
 }

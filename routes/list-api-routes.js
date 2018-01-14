@@ -3,9 +3,13 @@ const db = require('../models');
 module.exports = app=>{
 
 	app.get('/api/lists', (req, res) => {
-		db.List.findAll().then(dbList => {
+		let BoardId = req.params.id
+		// console.log(req.params.id)
+		db.List.findAll({
+			include: [db.Task]
+		}).then(dbList=>{
 			res.json(dbList);
-		});
+		})
 	});
 
 	app.post('/api/lists', (req, res) => {

@@ -9,7 +9,7 @@ module.exports = app => {
     });
 
     app.post('/api/boards', (req, res) => {
-    	console.log(req.body);
+    	// console.log(req.body);
         db.Board.create(req.body).then(dbBoard => {
             res.json(dbBoard);
         })

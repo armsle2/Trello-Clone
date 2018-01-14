@@ -31,8 +31,10 @@ module.exports = app=>{
 		db.List.findAll({
 			where: {
 				BoardId: BoardId
-			}
+			},
+			include: [db.Task]
 		}).then(dbList=>{
+			// console.log(dbList);
 			let hbsObject = {
 				list: dbList,
 				BoardId: BoardId
