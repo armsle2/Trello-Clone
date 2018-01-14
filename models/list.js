@@ -6,13 +6,6 @@ module.exports = (sequelize, DataTypes)=>{
 			validate: {
 				len: [1, 50]
 			}
-		},
-		task: {
-			type: DataTypes.TEXT,
-			allowNull: false,
-			validate: {
-				len: [1]
-			}
 		}
 	});
 
